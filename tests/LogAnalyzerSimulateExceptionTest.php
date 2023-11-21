@@ -26,9 +26,9 @@ class LogAnalyzerSimulateExceptionTest extends TestCase
         // arrange
         $myFakeManager = $this->getFakeExtensionManager();
         $myFakeManager->willThrow = new \Exception('this is a fake');
+        $log = new LogAnalyzerSimulateException($myFakeManager);
 
         // act
-        $log = new LogAnalyzerSimulateException($myFakeManager);
         $result = $log->isValidLogFileName('anything.myextension');
 
         // assert
