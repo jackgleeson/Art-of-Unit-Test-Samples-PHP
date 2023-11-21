@@ -28,7 +28,7 @@ class LogAnalyzerPropertyInjectionTest extends TestCase
         $myFakeManager = $this->getFakeExtensionManager();
         $myFakeManager->willBeValid = true;
         $logAnalyzer = new LogAnalyzerPropertyInjection();
-//        $logAnalyzer->setManager($myFakeManager);
+        $logAnalyzer->setManager($myFakeManager);
 
         // act
         $result = $logAnalyzer->isValidLogFileName('short.ext');
