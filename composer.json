@@ -1,0 +1,17 @@
+{
+    "name": "jack/art_of_unit_testing",
+    "autoload": {
+        "psr-4": {
+            "ArtOfUnitTesting\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jgleeson",
+            "email": "jgleeson@wikimedia.org"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    }
+}
