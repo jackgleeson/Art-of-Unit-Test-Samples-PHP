@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  * Needs @test annotation to work with PHPUnit.
  *
- * @group LogAnalyzer
+ * @group LogAnalyzerNoStub
  */
 class LogAnalyzerNoStubTest extends TestCase
 {

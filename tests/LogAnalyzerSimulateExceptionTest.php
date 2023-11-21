@@ -1,7 +1,7 @@
 <?php
 
 use ArtOfUnitTesting\IExtensionManager;
-use ArtOfUnitTesting\LogAnalyzerConstructorInjection;
+use ArtOfUnitTesting\LogAnalyzerSimulateException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,26 +13,26 @@ use PHPUnit\Framework\TestCase;
  * >>> Arrange_Act_Assert
  * Needs @test annotation to work with PHPUnit.
  *
- * @group LogAnalyzerConstructorInjection
+ * @group LogAnalyzerSimulateException
  */
-class LogAnalyzerConstructorInjectionTest extends TestCase
+class LogAnalyzerSimulateExceptionTest extends TestCase
 {
 
     /**
      * @test
      */
-    public function isValidLogFileName_NameSupportedExtension_ReturnsTrue() : void
+    public function isValidLogFileName_ExtManagerThrowsException_ReturnsFalse() : void
     {
         // arrange
         $myFakeManager = $this->getFakeExtensionManager();
-        $myFakeManager->willBeValid = true;
+        $myFakeManager->willThrow = new \Exception('this is a fake');
 
         // act
-        $log = new LogAnalyzerConstructorInjection($myFakeManager);
-        $result = $log->isValidLogFileName('short.ext');
+        $log = new LogAnalyzerSimulateException($myFakeManager);
+        $result = $log->isValidLogFileName('anything.myextension');
 
         // assert
-        $this->assertTrue($result);
+        $this->assertFalse($result);
 
     }
 
@@ -41,9 +41,13 @@ class LogAnalyzerConstructorInjectionTest extends TestCase
         return new class implements IExtensionManager {
 
             public bool $willBeValid = true;
+            public \Exception $willThrow;
 
             public function isValid(string $fileName) : bool
             {
+                if($this->willThrow) {
+                    throw $this->willThrow;
+                }
                 return $this->willBeValid;
             }
 
