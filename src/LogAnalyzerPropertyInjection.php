@@ -4,10 +4,7 @@ namespace ArtOfUnitTesting;
 
 class LogAnalyzerPropertyInjection
 {
-
-    /**
-     * @var \ArtOfUnitTesting\IExtensionManager
-     */
+    
     protected ?IExtensionManager $manager = null;
 
     public function isValidLogFileName(string $fileName) : bool
