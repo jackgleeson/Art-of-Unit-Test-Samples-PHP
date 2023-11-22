@@ -1,6 +1,8 @@
 <?php
 
+use ArtOfUnitTesting\ExtensionManagerFactory;
 use ArtOfUnitTesting\IExtensionManager;
+use ArtOfUnitTesting\LogAnalyzerFactoryClassInjection;
 use ArtOfUnitTesting\LogAnalyzerPropertyInjection;
 use PHPUnit\Framework\TestCase;
 
@@ -13,9 +15,9 @@ use PHPUnit\Framework\TestCase;
  * >>> Arrange_Act_Assert
  * Needs @test annotation to work with PHPUnit.
  *
- * @group LogAnalyzerConstructorInjection
+ * @group LogAnalyzerFactoryClass
  */
-class LogAnalyzerPropertyInjectionTest extends TestCase
+class LogAnalyzerFactoryClassInjectionTest extends TestCase
 {
 
     /**
@@ -26,8 +28,9 @@ class LogAnalyzerPropertyInjectionTest extends TestCase
         // arrange
         $myFakeManager = $this->getFakeExtensionManager();
         $myFakeManager->willBeValid = true;
-        $logAnalyzer = new LogAnalyzerPropertyInjection();
-        $logAnalyzer->setManager($myFakeManager);
+
+        ExtensionManagerFactory::setExtensionManager($myFakeManager);
+        $logAnalyzer = new LogAnalyzerFactoryClassInjection();
 
         // act
         $result = $logAnalyzer->isValidLogFileName('short.ext');
