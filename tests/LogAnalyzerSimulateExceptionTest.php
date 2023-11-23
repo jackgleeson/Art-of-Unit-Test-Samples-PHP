@@ -1,7 +1,8 @@
 <?php
 
-use ArtOfUnitTesting\IExtensionManager;
-use ArtOfUnitTesting\LogAnalyzerSimulateException;
+use ArtOfUnitTesting\stubbing\IExtensionManager;
+use ArtOfUnitTesting\stubbing\LogAnalyzerSimulateException;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,16 +12,13 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
- * Needs @test annotation to work with PHPUnit.
  *
  * @group LogAnalyzerSimulateException
  */
 class LogAnalyzerSimulateExceptionTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_ExtManagerThrowsException_ReturnsFalse() : void
     {
         // arrange

@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting;
+namespace ArtOfUnitTesting\stubbing;
 
 use Exception;
 
@@ -9,7 +9,7 @@ class LogAnalyzerSimulateException
 
 
     /**
-     * @var \ArtOfUnitTesting\IExtensionManager
+     * @var \ArtOfUnitTesting\stubbing\IExtensionManager
      */
     protected IExtensionManager $manager;
 

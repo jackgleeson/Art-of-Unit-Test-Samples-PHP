@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting;
+namespace ArtOfUnitTesting\stubbing;
 
 class LogAnalyzerExtractAndOverrideDirectResult
 {

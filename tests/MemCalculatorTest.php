@@ -1,14 +1,13 @@
 <?php
 
 use ArtOfUnitTesting\MemCalculator;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class MemCalculatorTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function Sum_ByDefault_ReturnsZero() : void
     {
         $calc = self::makeCalc();
@@ -17,9 +16,7 @@ class MemCalculatorTest extends TestCase
 
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function Add_WhenCalled_ChangesSum() : void
     {
         $calc = self::makeCalc();

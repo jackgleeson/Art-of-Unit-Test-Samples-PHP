@@ -1,7 +1,8 @@
 <?php
 
-use ArtOfUnitTesting\IExtensionManager;
-use ArtOfUnitTesting\LogAnalyzerExtractAndOverrideLocalFactory;
+use ArtOfUnitTesting\stubbing\IExtensionManager;
+use ArtOfUnitTesting\stubbing\LogAnalyzerExtractAndOverrideLocalFactory;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,16 +12,13 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
- * Needs @test annotation to work with PHPUnit.
  *
  * @group LogAnalyzerExtractAndOverrideLocalFactory
  */
-class LogAnalyzerExtractAndOverrideLocalFactoryTest extends TestCase
+class StubUsingExtractAndOverrideLocalFactoryTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_SupportedExtension_ReturnsTrue() : void
     {
         // arrange
@@ -38,9 +36,7 @@ class LogAnalyzerExtractAndOverrideLocalFactoryTest extends TestCase
         $this->assertTrue($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_UnsupportedExtension_ReturnsFalse() : void
     {
         // arrange
@@ -63,9 +59,9 @@ class LogAnalyzerExtractAndOverrideLocalFactoryTest extends TestCase
      * This is where we use extract and override to extend the class under test
      * and override the local factory method to return our stub
      *
-     * @param \ArtOfUnitTesting\IExtensionManager $extensionManager
+     * @param \ArtOfUnitTesting\stubbing\IExtensionManager $extensionManager
      *
-     * @return \ArtOfUnitTesting\LogAnalyzerExtractAndOverrideLocalFactory
+     * @return \ArtOfUnitTesting\stubbing\LogAnalyzerExtractAndOverrideLocalFactory
      */
     protected function getTestableLogAnalyzer(IExtensionManager $extensionManager
     ) : LogAnalyzerExtractAndOverrideLocalFactory {
@@ -82,7 +78,7 @@ class LogAnalyzerExtractAndOverrideLocalFactoryTest extends TestCase
              * This method overrides the local factory method in the
              * class under test
              *
-             * @return \ArtOfUnitTesting\IExtensionManager
+             * @return \ArtOfUnitTesting\stubbing\IExtensionManager
              */
             protected function getExtensionManager() : IExtensionManager
             {

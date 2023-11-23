@@ -1,6 +1,7 @@
 <?php
 
-use ArtOfUnitTesting\LogAnalyzerExtractAndOverrideDirectResult;
+use ArtOfUnitTesting\stubbing\LogAnalyzerExtractAndOverrideDirectResult;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,16 +11,13 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
- * Needs @test annotation to work with PHPUnit.
  *
  * @group LogAnalyzerExtractAndOverrideDrectResult
  */
-class LogAnalyzerExtractAndOverrideDirectResultTest extends TestCase
+class StubUsingExtractAndOverrideDirectResultTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_SupportedExtension_ReturnsTrue() : void
     {
         // arrange
@@ -39,9 +37,9 @@ class LogAnalyzerExtractAndOverrideDirectResultTest extends TestCase
      * and override the direct result method. This easier than overriding a local
      * factory as we go straight to the result.
      *
-     * @param \ArtOfUnitTesting\IExtensionManager $extensionManager
+     * @param \ArtOfUnitTesting\stubbing\IExtensionManager $extensionManager
      *
-     * @return \ArtOfUnitTesting\LogAnalyzerExtractAndOverrideLocalFactory
+     * @return \ArtOfUnitTesting\stubbing\LogAnalyzerExtractAndOverrideLocalFactory
      */
     protected function getTestableLogAnalyzer() : LogAnalyzerExtractAndOverrideDirectResult {
         return new class extends LogAnalyzerExtractAndOverrideDirectResult {

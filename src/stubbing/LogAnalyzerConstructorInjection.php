@@ -1,13 +1,13 @@
 <?php
 
-namespace ArtOfUnitTesting;
+namespace ArtOfUnitTesting\stubbing;
 
 class LogAnalyzerConstructorInjection
 {
 
 
     /**
-     * @var \ArtOfUnitTesting\IExtensionManager
+     * @var \ArtOfUnitTesting\stubbing\IExtensionManager
      */
     protected IExtensionManager $manager;
 

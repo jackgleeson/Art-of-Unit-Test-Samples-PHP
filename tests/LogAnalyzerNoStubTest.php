@@ -1,6 +1,8 @@
 <?php
 
-use ArtOfUnitTesting\LogAnalyzerNoStub;
+use ArtOfUnitTesting\stubbing\LogAnalyzerNoStub;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -8,7 +10,6 @@ use PHPUnit\Framework\TestCase;
  *
  * Test naming convention from p26:
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
- * Needs @test annotation to work with PHPUnit.
  *
  * @group LogAnalyzerNoStub
  */
@@ -23,18 +24,15 @@ class LogAnalyzerNoStubTest extends TestCase
         $this->logAnalyzer = new LogAnalyzerNoStub();
     }
 
-    /**
-     * @test
-     * @dataProvider getLogFileName
-     */
+
+    #[Test]
+    #[dataProvider('getLogFileName')]
     public function isValidLogFileName_VariousExtensions_ChecksThem(string $fileName, bool $expectedResult) : void
     {
         $this->assertEquals($expectedResult, $this->logAnalyzer->isValidLogFileName($fileName));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_EmptyFileName_ThrowsException() : void
     {
         // using expectExceptionMessageMatches as a substitute for Contains
@@ -44,9 +42,7 @@ class LogAnalyzerNoStubTest extends TestCase
         $this->logAnalyzer->isValidLogFileName('');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isValidLogFileName_WhenCalled_ChecksWasLastFileNameValid() : void
     {
         $this->logAnalyzer->isValidLogFileName('fileWithBadExtension.foo');

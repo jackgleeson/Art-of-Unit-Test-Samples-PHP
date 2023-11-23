@@ -1,7 +1,8 @@
 <?php
 
-use ArtOfUnitTesting\IExtensionManager;
-use ArtOfUnitTesting\LogAnalyzerConstructorInjection;
+use ArtOfUnitTesting\stubbing\IExtensionManager;
+use ArtOfUnitTesting\stubbing\LogAnalyzerPropertyInjection;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,29 +12,26 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
- * Needs @test annotation to work with PHPUnit.
  *
  * @group LogAnalyzerConstructorInjection
  */
-class LogAnalyzerConstructorInjectionTest extends TestCase
+class StubUsingPropertyInjectionTest extends TestCase
 {
 
-    /**
-     * @test
-     */
-    public function isValidLogFileName_NameSupportedExtension_ReturnsTrue() : void
+    #[Test]
+    public function isValidLogFileName_SupportedExtension_ReturnsTrue() : void
     {
         // arrange
         $myFakeManager = $this->getFakeExtensionManager();
         $myFakeManager->willBeValid = true;
-        $log = new LogAnalyzerConstructorInjection($myFakeManager);
+        $logAnalyzer = new LogAnalyzerPropertyInjection();
+        $logAnalyzer->setManager($myFakeManager);
 
         // act
-        $result = $log->isValidLogFileName('short.ext');
+        $result = $logAnalyzer->isValidLogFileName('short.ext');
 
         // assert
         $this->assertTrue($result);
-
     }
 
     protected function getFakeExtensionManager() : IExtensionManager

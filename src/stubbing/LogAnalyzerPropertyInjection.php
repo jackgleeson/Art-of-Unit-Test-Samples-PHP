@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting;
+namespace ArtOfUnitTesting\stubbing;
 
 class LogAnalyzerPropertyInjection
 {
@@ -13,7 +13,7 @@ class LogAnalyzerPropertyInjection
     }
 
     /**
-     * @return \ArtOfUnitTesting\IExtensionManager
+     * @return \ArtOfUnitTesting\stubbing\IExtensionManager
      */
     protected function getManager() : IExtensionManager
     {
@@ -25,7 +25,7 @@ class LogAnalyzerPropertyInjection
     }
 
     /**
-     * @param \ArtOfUnitTesting\IExtensionManager $manager
+     * @param \ArtOfUnitTesting\stubbing\IExtensionManager $manager
      */
     public function setManager(IExtensionManager $manager) : void
     {

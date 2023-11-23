@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting;
+namespace ArtOfUnitTesting\stubbing;
 
 class LogAnalyzerExtractAndOverrideLocalFactory
 {
@@ -14,7 +14,7 @@ class LogAnalyzerExtractAndOverrideLocalFactory
     /**
      * This local factory method will be overridden in the test
      *
-     * @return \ArtOfUnitTesting\IExtensionManager
+     * @return \ArtOfUnitTesting\stubbing\IExtensionManager
      */
     protected function getExtensionManager() : IExtensionManager
     {
