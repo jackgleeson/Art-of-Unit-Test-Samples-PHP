@@ -2,7 +2,7 @@
 
 namespace ArtOfUnitTesting;
 
-class LogAnalyzerLocalFactoryExtractAndOverride
+class LogAnalyzerExtractAndOverrideLocalFactory
 {
 
 

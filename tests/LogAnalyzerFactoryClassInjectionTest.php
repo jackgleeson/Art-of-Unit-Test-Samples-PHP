@@ -3,7 +3,6 @@
 use ArtOfUnitTesting\ExtensionManagerFactory;
 use ArtOfUnitTesting\IExtensionManager;
 use ArtOfUnitTesting\LogAnalyzerFactoryClassInjection;
-use ArtOfUnitTesting\LogAnalyzerPropertyInjection;
 use PHPUnit\Framework\TestCase;
 
 /**

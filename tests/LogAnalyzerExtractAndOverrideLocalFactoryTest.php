@@ -1,10 +1,7 @@
 <?php
 
-use ArtOfUnitTesting\ExtensionManagerFactory;
 use ArtOfUnitTesting\IExtensionManager;
-use ArtOfUnitTesting\LogAnalyzerFactoryClassInjection;
-use ArtOfUnitTesting\LogAnalyzerLocalFactoryExtractAndOverride;
-use ArtOfUnitTesting\LogAnalyzerPropertyInjection;
+use ArtOfUnitTesting\LogAnalyzerExtractAndOverrideLocalFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,9 +13,9 @@ use PHPUnit\Framework\TestCase;
  * >>> Arrange_Act_Assert
  * Needs @test annotation to work with PHPUnit.
  *
- * @group LogAnalyzerLocalFactoryExtractAndOverride
+ * @group LogAnalyzerExtractAndOverrideLocalFactory
  */
-class LogAnalyzerLocalFactoryExtractAndOverrideTest extends TestCase
+class LogAnalyzerExtractAndOverrideLocalFactoryTest extends TestCase
 {
 
     /**
@@ -68,11 +65,11 @@ class LogAnalyzerLocalFactoryExtractAndOverrideTest extends TestCase
      *
      * @param \ArtOfUnitTesting\IExtensionManager $extensionManager
      *
-     * @return \ArtOfUnitTesting\LogAnalyzerLocalFactoryExtractAndOverride
+     * @return \ArtOfUnitTesting\LogAnalyzerExtractAndOverrideLocalFactory
      */
     protected function getTestableLogAnalyzer(IExtensionManager $extensionManager
-    ) : LogAnalyzerLocalFactoryExtractAndOverride {
-        return new class($extensionManager) extends LogAnalyzerLocalFactoryExtractAndOverride {
+    ) : LogAnalyzerExtractAndOverrideLocalFactory {
+        return new class($extensionManager) extends LogAnalyzerExtractAndOverrideLocalFactory {
 
             private IExtensionManager $extensionManager;
 
@@ -82,7 +79,7 @@ class LogAnalyzerLocalFactoryExtractAndOverrideTest extends TestCase
             }
 
             /**
-             * This method is overriding the local factory method in the
+             * This method overrides the local factory method in the
              * class under test
              *
              * @return \ArtOfUnitTesting\IExtensionManager
