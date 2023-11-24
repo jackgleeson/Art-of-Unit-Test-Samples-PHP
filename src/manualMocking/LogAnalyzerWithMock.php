@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting\mocking;
+namespace ArtOfUnitTesting\manualMocking;
 
 class LogAnalyzerWithMock
 {

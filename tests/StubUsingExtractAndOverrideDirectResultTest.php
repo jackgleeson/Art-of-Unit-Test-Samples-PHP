@@ -12,7 +12,6 @@ use PHPUnit\Framework\TestCase;
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
  *
- * @group LogAnalyzerExtractAndOverrideDrectResult
  */
 class StubUsingExtractAndOverrideDirectResultTest extends TestCase
 {

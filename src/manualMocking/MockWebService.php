@@ -1,8 +1,8 @@
 <?php
 
-namespace ArtOfUnitTesting\mocking;
+namespace ArtOfUnitTesting\manualMocking;
 
-class FakeWebService implements IWebService
+class MockWebService implements IWebService
 {
     public string $lastError;
 

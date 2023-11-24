@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
  * Test naming convention from p26:
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  *
- * @group LogAnalyzerNoStub
  */
 class LogAnalyzerNoStubTest extends TestCase
 {

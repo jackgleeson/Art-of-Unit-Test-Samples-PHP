@@ -13,7 +13,6 @@ use PHPUnit\Framework\TestCase;
  * >>> Given_When_Then
  * >>> Arrange_Act_Assert
  *
- * @group LogAnalyzerConstructorInjection
  */
 class StubUsingConstructorInjectionTest extends TestCase
 {

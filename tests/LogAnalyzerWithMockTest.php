@@ -1,7 +1,7 @@
 <?php
 
-use ArtOfUnitTesting\mocking\FakeWebService;
-use ArtOfUnitTesting\mocking\LogAnalyzerWithMock;
+use ArtOfUnitTesting\manualMocking\MockWebService;
+use ArtOfUnitTesting\manualMocking\LogAnalyzerWithMock;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
  * Test naming convention from p26:
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  *
- * @group LogAnalyzerWithMock
  */
 class LogAnalyzerWithMockTest extends TestCase
 {
@@ -20,7 +19,7 @@ class LogAnalyzerWithMockTest extends TestCase
     public function Analyze_TooShortFileName_CallsWebService() : void
     {
         // arrange
-        $mockService = new FakeWebService();
+        $mockService = new MockWebService();
         $logAnalyzer = new LogAnalyzerWithMock($mockService);
         $tooShortFileName = "abc.ext";
 
