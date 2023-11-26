@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  * >>> [UnitOfWorkName]_[ScenarioUnderTest]_[ExpectedResult]
  *
  */
-class LogAnalyzerWithMockAndStubTest extends TestCase
+class LogAnalyzerWithManualMockAndStubTest extends TestCase
 {
 
     #[Test]

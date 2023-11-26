@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtOfUnitTesting\stubbing;
+namespace ArtOfUnitTesting\misc;
 
 class LogAnalyzerNoStub
 {

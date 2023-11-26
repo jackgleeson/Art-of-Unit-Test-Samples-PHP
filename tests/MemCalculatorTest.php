@@ -1,6 +1,6 @@
 <?php
 
-use ArtOfUnitTesting\MemCalculator;
+use ArtOfUnitTesting\misc\MemCalculator;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

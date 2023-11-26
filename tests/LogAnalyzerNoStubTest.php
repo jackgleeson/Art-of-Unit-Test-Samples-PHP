@@ -1,6 +1,6 @@
 <?php
 
-use ArtOfUnitTesting\stubbing\LogAnalyzerNoStub;
+use ArtOfUnitTesting\misc\LogAnalyzerNoStub;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +25,7 @@ class LogAnalyzerNoStubTest extends TestCase
 
 
     #[Test]
-    #[dataProvider('getLogFileName')]
+    #[DataProvider('getLogFileName')]
     public function isValidLogFileName_VariousExtensions_ChecksThem(string $fileName, bool $expectedResult) : void
     {
         $this->assertEquals($expectedResult, $this->logAnalyzer->isValidLogFileName($fileName));
