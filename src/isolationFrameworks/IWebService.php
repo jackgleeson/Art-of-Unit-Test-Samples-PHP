@@ -1,9 +1,8 @@
 <?php
 
 namespace ArtOfUnitTesting\isolationFrameworks;
-
 interface IWebService
 {
-    public function write(string $message) : void;
+    public function write(ErrorInfo $errorInfo) : void;
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use ArtOfUnitTesting\isolationFrameworks\ErrorInfo;
 use ArtOfUnitTesting\isolationFrameworks\FakeLogger;
 use ArtOfUnitTesting\isolationFrameworks\IFileNameRules;
 use ArtOfUnitTesting\isolationFrameworks\ILogger;
@@ -19,20 +20,24 @@ use PHPUnit\Framework\TestCase;
 class LogAnalyzerWithAutoMockAndStubTest extends TestCase
 {
 
+
     #[Test]
     public function Analyze_LoggerThrows_CallsWebService() : void
     {
         // arrange
         $mockWebService = $this->createMock(IWebService::class);
         $stubLogger = $this->createStub(ILogger::class);
-
-        // expectations
         $stubLogger->method("logError")
             ->willThrowException(new \Exception("fake exception"));
 
+        // expectations
+        $expected = new ErrorInfo();
+        $expected->setMessage("Error from logger: fake exception");
+        $expected->setSeverity(1000);
+
         $mockWebService->expects($this->once())
             ->method("write")
-            ->with($this->equalTo("Error from logger: fake exception"));
+            ->with($this->equalTo($expected));
 
         // act
         $logAnalyzer = new LogAnalyzerWithMockAndStub($stubLogger, $mockWebService);

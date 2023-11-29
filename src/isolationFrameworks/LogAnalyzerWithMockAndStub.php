@@ -24,7 +24,11 @@ class LogAnalyzerWithMockAndStub
             try {
                 $this->logger->logError("File name too short: " . $filename);
             } catch (\Exception $e) {
-                $this->webService->write("Error from logger: " . $e->getMessage());
+                $errorInfo = new ErrorInfo();
+                $errorInfo->setMessage("Error from logger: " . $e->getMessage());
+                $errorInfo->setSeverity(1000);
+
+                $this->webService->write($errorInfo);
             }
         }
     }
