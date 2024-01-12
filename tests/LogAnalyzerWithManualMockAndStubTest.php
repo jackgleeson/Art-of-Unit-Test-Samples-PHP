@@ -22,6 +22,7 @@ class LogAnalyzerWithManualMockAndStubTest extends TestCase
         // arrange
         $stubWebService = new FakeWebService();
         $stubWebService->toThrow = new \Exception("fake exception email body");
+
         $mockEmailService = new MockEmailService();
         $logAnalyzer = new LogAnalyzerWithMockAndStub($stubWebService, $mockEmailService);
         $tooShortFileName = "abc.ext";

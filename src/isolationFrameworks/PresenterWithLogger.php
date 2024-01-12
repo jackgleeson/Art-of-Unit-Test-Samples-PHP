@@ -4,14 +4,6 @@ namespace ArtOfUnitTesting\isolationFrameworks;
 
 use Exception;
 
-/**
- * This is a wierd design.
- * In the real world, the presenter would internally build the view output
- * and then render it as a final step, not as an initial step.
- *
- * I think it's been cut short for the sake of the example in the book,
- * but it is horrible and confusing.
- */
 class PresenterWithLogger
 {
 
@@ -42,11 +34,7 @@ class PresenterWithLogger
     public function onLoaded() : void
     {
         $viewInput = "Hello, World!";
-        // in production, this would be wrapped with
-        // html by the implementation of IView
         $this->view->render($viewInput);
-        // also in the real world, render would be part of the
-        // presenter responsibility to render the view
     }
 
 }

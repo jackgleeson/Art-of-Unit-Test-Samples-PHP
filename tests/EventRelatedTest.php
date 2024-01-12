@@ -27,7 +27,7 @@ class EventRelatedTest extends TestCase
         // the Presenter constructor will fire the loaded() event
         // and should return and simultaneously trigger the stubbed
         // event listener(Which simulates Presenter::onLoaded())
-        // which will then finally call render(). Yuck!
+        // which will then finally call render().
         $presenter = new Presenter($mockView);
 
     }
